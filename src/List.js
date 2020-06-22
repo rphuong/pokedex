@@ -11,7 +11,7 @@ class List extends Component {
         super(props);
         this.state = {
             query: "",
-            pokemon: this.getPokemon(),
+            pokemon: [],
             options: []
         };
     }
@@ -20,32 +20,47 @@ class List extends Component {
      * Sets up the initial list of options based on the initial pokemon list
      */
     componentDidMount() {
-        this.setState({options: this.filter("", this.state.pokemon)});
+        this.getPokemon();
     }
 
     /*
-     * Returns a list of strings for possible pokemon names to display
+     * Stores a list of strings for possible pokemon names to display
      */
-    getPokemon = () => {
-        return ["Bulbasaur", "Pikachu", "Meowth", "Mew"];
+    getPokemon = async () => {
+        try {
+            let response = await fetch("https://pokeapi.co/api/v2/pokemon");
+            if(!response.ok) {
+                alert("The status is wrong! Expected: 200, Was: " + response.status);
+                return;
+            }
+            let pokemon = await response.json();
+            let names = [];
+            for(const name of pokemon.results) {
+                names.push(name.name);
+            }
+            this.setState({pokemon: names}, () => {this.filter("")});
+        } catch (e) {
+            alert("There was an error contacting the server.");
+            console.log(e);
+        }
     };
 
     /*
-     * Returns a list of <li>s where each one is a pokemon which partially matches the
-     * given query string while ignoring case
+     * Stores a list of <li>s where each one is a pokemon which partially matches the
+     * given query string while ignoring case. Will search all pokemon stored in
+     * this.state.pokemon
      * @param query (string) partial string to search for pokemon names
-     * @param pokemon (string[]) list of possible pokemon names to search
      */
-    filter = (query, pokemon) => {
+    filter = (query) => {
         let queryLower = query.toLowerCase();
         let options = [];
-        for (let currPoke of pokemon) {
+        for (let currPoke of this.state.pokemon) {
             if (currPoke.toLowerCase().includes(queryLower)) {
                 options.push(<li id="poke-item">
                     <Link to={"/pokemon/" + currPoke}>{currPoke}</Link></li>);
             }
         }
-        return options;
+        this.setState({options: options});
     };
 
     render() {
@@ -55,10 +70,8 @@ class List extends Component {
                 <input id="filter-bar" type="text" value={this.state.query}
                        onChange={(event) => {
                            let query = event.target.value;
-                           this.setState({
-                               options: this.filter(query, this.state.pokemon),
-                               query: query
-                           });
+                           this.filter(query);
+                           this.setState({query: query});
                        }}/>
                 <ul id="poke-list">
                     {this.state.options}

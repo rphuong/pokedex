@@ -31,4 +31,5 @@
     display: inline-block;
     vertical-align: bottom;
     margin: 10px;
+    text-transform: capitalize;
 }
