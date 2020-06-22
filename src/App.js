@@ -1,21 +1,25 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import "./App.css"
-import List from "./List";
-import Detail from "./Detail";
+import store from "./store";
+import List from "./components/List";
+import Detail from "./components/Detail";
 
 class App extends Component {
 
-    render() {
-        return (
-        <div>
-            <Switch>
-                <Route path="/pokemon/:pokemon_name" component={Detail}/>
-                <Route path="/" component={List} />
-            </Switch>
-        </div>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/pokemon/:pokemon_name" component={Detail}/>
+            <Route path="/" component={List}/>
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
 }
 
 export default App;
