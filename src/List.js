@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class List extends Component {
 
@@ -40,7 +41,8 @@ class List extends Component {
         let options = [];
         for (let currPoke of pokemon) {
             if (currPoke.toLowerCase().includes(queryLower)) {
-                options.push(<li id="poke-item">{currPoke}</li>);
+                options.push(<li id="poke-item">
+                    <Link to={"/pokemon/" + currPoke}>{currPoke}</Link></li>);
             }
         }
         return options;
