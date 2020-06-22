@@ -39,8 +39,8 @@ class List extends Component {
         let queryLower = query.toLowerCase();
         let options = [];
         for (let currPoke of pokemon) {
-            if (currPoke.toLowerCase().includes(query)) {
-                options.push(<li>{currPoke}</li>);
+            if (currPoke.toLowerCase().includes(queryLower)) {
+                options.push(<li id="poke-item">{currPoke}</li>);
             }
         }
         return options;
@@ -50,7 +50,7 @@ class List extends Component {
         console.log(this.state);
         return (
             <div>
-                <input type="text" value={this.state.query}
+                <input id="filter-bar" type="text" value={this.state.query}
                        onChange={(event) => {
                            let query = event.target.value;
                            this.setState({
@@ -58,7 +58,7 @@ class List extends Component {
                                query: query
                            });
                        }}/>
-                <ul>
+                <ul id="poke-list">
                     {this.state.options}
                 </ul>
             </div>
