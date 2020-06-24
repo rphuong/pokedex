@@ -4,13 +4,6 @@ import {updateQuery, fetchPokemon, filterOptions} from "../actions/actions";
 
 class List extends Component {
 
-  /*
-   * Sets up the initial list of options based on the initial pokemon list
-   */
-  componentDidMount() {
-    this.props.fetchPokemon(151);
-  }
-
   componentDidUpdate(prevProps) {
     if (this.props.pokemon !== prevProps.pokemon) {
       this.props.filterOptions("", this.props.pokemon);

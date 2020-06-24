@@ -1,25 +1,30 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {connect} from 'react-redux';
 import "./App.css"
-import store from "./store";
 import List from "./components/List";
 import Detail from "./components/Detail";
+import {fetchPokemon} from "./actions/actions";
 
 class App extends Component {
 
+  /*
+   * Sets up the initial list of options based on the initial pokemon list
+   */
+  componentDidMount() {
+    this.props.fetchPokemon(151);
+  }
+
   render() {
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/pokemon/:pokemon_id" component={Detail}/>
-            <Route path="/" component={List}/>
-          </Switch>
-        </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/pokemon/:pokemon_id" component={Detail}/>
+          <Route path="/" component={List}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default connect(null, {fetchPokemon})(App);
