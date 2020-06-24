@@ -13,7 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route path="/pokemon/:pokemon_name" component={Detail}/>
+            <Route path="/pokemon/:pokemon_id" component={Detail}/>
             <Route path="/" component={List}/>
           </Switch>
         </BrowserRouter>

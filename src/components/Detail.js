@@ -10,7 +10,7 @@ class Detail extends Component {
         super(props);
         this.state = {
         };
-        this.pokemonName = props.match.params.pokemon_name;
+        this.pokemonId = props.match.params.pokemon_id;
     }
 
     /*
@@ -22,7 +22,7 @@ class Detail extends Component {
     render() {
         return (
             <div>
-                Detail view for {this.pokemonName}
+                Detail view for {this.pokemonId}
             </div>
         );
     }
