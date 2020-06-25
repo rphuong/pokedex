@@ -3,8 +3,8 @@
  */
 #filter-bar {
     display: block;
-    margin: auto;
-    width: 75%;
+    margin: 3% auto 1%;
+    width: 33%;
     height: 40px;
     font-size: 24px;
     border-radius: 20px;
@@ -21,6 +21,8 @@
 #poke-list {
     list-style-type: none;
     text-align: center;
+    width: 70%;
+    margin: auto auto;
 }
 
 /*
@@ -30,6 +32,70 @@
 #poke-item {
     display: inline-block;
     vertical-align: bottom;
-    margin: 10px;
+    margin: 30px;
     text-transform: capitalize;
+    font-size: 20px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#detail-top {
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+#types {
+    list-style: none;
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 0;
+}
+
+#type {
+    width: auto;
+    text-transform: capitalize;
+    display: inline-block;
+    padding: 10px;
+    background-color: #2d282c;
+    margin: 0 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+#detail-bot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-transform: capitalize;
+    margin: 0 auto;
+    text-align: center;
+}
+
+span#moves, span#abilities {
+    padding: 10px;
+}
+
+ul#moves, ul#abilities {
+    list-style: none;
+    display: inline-block;
+    text-align: left;
+}
+
+p {
+    margin: 0 auto;
+}
+
+h1 {
+    text-transform: capitalize;
+    margin: 2px;
+}
+
+h2 {
+    text-align: center;
 }

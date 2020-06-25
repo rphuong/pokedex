@@ -27,7 +27,13 @@ export const filterOptions = (query, pokeList) => {
     pokeList.filter(pokemon => pokemon.name.toLowerCase().includes(queryLow))
             .map(pokemon =>
               <li id="poke-item">
-                <Link to={"/pokemon/" + pokemon.id}>{pokemon.name}<br/>{pokemon.id}</Link>
+                <Link to={"/pokemon/" + pokemon.id}>
+                  <img src={pokemon.sprites.front_default} alt={pokemon.name}
+                  width={125} height={125}/>
+                  <br />{pokemon.name}<br/>
+                  {"#" + "0".repeat(3 - pokemon.id.toString().length)
+                    + pokemon.id.toString()}
+                </Link>
               </li>);
   return {
     type: FILTER_OPTIONS,

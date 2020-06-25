@@ -34,24 +34,32 @@ class Detail extends Component {
     if (!this.pokemonDetails)
       return null;
     return (
-      <div>
-        <img src={this.pokemonDetails.sprites.front_default}
-             alt={this.pokemonDetails.name}/>
-        <h1>{this.pokemonDetails.name}</h1>
-        <p>ID# {this.getThreeDigitId()}</p>
-        <ul>
-          {this.pokemonDetails.types.map(type => <li>{type.type.name}</li>)}
-        </ul>
-        <p>height: {this.pokemonDetails.height}</p>
-        <p>weight: {this.pokemonDetails.weight}</p>
-        <h2>Moves</h2>
-        <ul>
-          {this.pokemonDetails.moves.map(move => <li>{move.move.name}</li>)}
-        </ul>
-        <h2>Abilities</h2>
-        <ul>
-          {this.pokemonDetails.abilities.map(ability => <li>{ability.ability.name}</li>)}
-        </ul>
+      <div id="detail">
+        <div id="detail-top">
+          <img src={this.pokemonDetails.sprites.front_default}
+               alt={this.pokemonDetails.name}/>
+          <h1>{this.pokemonDetails.name}</h1>
+          <p>ID# {this.getThreeDigitId()}</p>
+          <ul id="types">
+            {this.pokemonDetails.types.map(type => <li id="type">{type.type.name}</li>)}
+          </ul>
+          <p>height: {this.pokemonDetails.height}</p>
+          <p>weight: {this.pokemonDetails.weight}</p>
+        </div>
+        <div id="detail-bot">
+          <span id="moves">
+          <h2>Moves</h2>
+          <ul id="moves">
+            {this.pokemonDetails.moves.map(move => <li>{move.move.name}</li>)}
+          </ul>
+          </span>
+          <span id="abilities">
+          <h2>Abilities</h2>
+          <ul id="abilities">
+            {this.pokemonDetails.abilities.map(ability => <li>{ability.ability.name}</li>)}
+          </ul>
+          </span>
+        </div>
       </div>
     );
   }
