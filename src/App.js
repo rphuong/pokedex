@@ -8,13 +8,19 @@ import List from "./components/List";
 import Detail from "./components/Detail";
 import {fetchPokemon} from "./actions/actions";
 
+const NUM_POKEMON = 151;
+
 class App extends Component {
 
   /*
    * Sets up the initial list of options based on the initial pokemon list
    */
   componentDidMount() {
-    this.props.fetchPokemon(151);
+    this.props.fetchPokemon(NUM_POKEMON);
+  }
+
+  componentDidUpdate() {
+    this.props.fetchPokemon(NUM_POKEMON);
   }
 
   render() {
