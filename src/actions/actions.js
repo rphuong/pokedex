@@ -28,3 +28,10 @@ export const filterOptions = (query) => {
     data: query.toLowerCase()
   };
 };
+
+export const getPokemon = (id) => {
+  return {
+    type: GET_POKEMON,
+    data: id
+  }
+};
