@@ -1,7 +1,6 @@
 // Copyright 2020, Rachel Phuong
 
 import {UPDATE_QUERY, FETCH_POKEMON, FILTER_OPTIONS, GET_POKEMON} from './types';
-import {Link} from "react-router-dom";
 import React from "react";
 
 export const updateQuery = (query) => {
@@ -23,22 +22,9 @@ export const fetchPokemon = (numPokemon) => dispatch => {
     })});
 };
 
-export const filterOptions = (query, pokeList) => {
-  let queryLow = query.toLowerCase();
-  let options =
-    pokeList.filter(pokemon => pokemon.name.toLowerCase().includes(queryLow))
-            .map(pokemon =>
-              <li id="poke-item">
-                <Link to={"/pokemon/" + pokemon.id}>
-                  <img src={pokemon.sprites.front_default} alt={pokemon.name}
-                  width={125} height={125}/>
-                  <br />{pokemon.name}<br/>
-                  {"#" + "0".repeat(3 - pokemon.id.toString().length)
-                    + pokemon.id.toString()}
-                </Link>
-              </li>);
+export const filterOptions = (query) => {
   return {
     type: FILTER_OPTIONS,
-    data: options
+    data: query.toLowerCase()
   };
 };

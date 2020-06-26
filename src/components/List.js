@@ -6,9 +6,15 @@ import {updateQuery, fetchPokemon, filterOptions} from "../actions/actions";
 
 class List extends Component {
 
+  componentDidMount() {
+    if (this.props.pokemon) {
+      this.props.filterOptions("");
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.pokemon !== prevProps.pokemon) {
-      this.props.filterOptions("", this.props.pokemon);
+      this.props.filterOptions("");
     }
   }
 
@@ -18,7 +24,7 @@ class List extends Component {
         <input id="filter-bar" type="text" value={this.props.query}
                onChange={(event) => {
                  let query = event.target.value;
-                 this.props.filterOptions(query, this.props.pokemon);
+                 this.props.filterOptions(query);
                  this.props.updateQuery(query);
                }}/>
         <ul id="poke-list">
