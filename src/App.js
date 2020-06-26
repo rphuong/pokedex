@@ -8,21 +8,27 @@ import List from "./components/List";
 import Detail from "./components/Detail";
 import {fetchPokemon} from "./actions/actions";
 
+/*
+ * The number of pokemon to display and cache for this app
+ */
 const NUM_POKEMON = 151;
 
+/*
+ * A pokedex which has a list view to search pokemon and has detail view for each
+ * pokemon included in the list view
+ */
 class App extends Component {
 
   /*
-   * Sets up the initial list of options based on the initial pokemon list
+   * Sets up the initial pokemon list
    */
   componentDidMount() {
     this.props.fetchPokemon(NUM_POKEMON);
   }
 
-  componentDidUpdate() {
-    this.props.fetchPokemon(NUM_POKEMON);
-  }
-
+  /*
+   * Renders this with routes to either the list view or detail view
+   */
   render() {
     return (
       <BrowserRouter>

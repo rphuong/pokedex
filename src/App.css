@@ -18,17 +18,17 @@
 }
 
 /*
- * Removes bullet points and center aligns the pokemon list
+ * Remove bullet points and center-align the pokemon list
  */
 #poke-list {
     list-style-type: none;
     text-align: center;
     width: 70%;
-    margin: auto auto;
+    margin: auto;
 }
 
 /*
- * Puts the pokemon list items in a grid format with a margin and
+ * Put the pokemon list items in a grid format with a margin and
  * aligning vertically on the bottom
  */
 #poke-item {
@@ -39,11 +39,17 @@
     font-size: 20px;
 }
 
+/*
+ * Remove the blue underline formatting from links
+ */
 a {
     color: black;
     text-decoration: none;
 }
 
+/*
+ * For the top of the detail page, make the background light gray, align text center, etc.
+ */
 #detail-top {
     background-color: lightgray;
     text-align: center;
@@ -51,17 +57,30 @@ a {
     margin: 0;
 }
 
+/*
+ * For any header 1, capitalize and reduce margins
+ */
+h1 {
+    text-transform: capitalize;
+    margin: 2px;
+}
+
+/*
+ * For the list of types, remove bullets, position each element next to each other
+ */
 #types {
     list-style: none;
     position: relative;
     display: block;
-    text-align: center;
     margin: 10px auto;
     padding: 0;
 }
 
+/*
+ * For each type of the type list, capitalize, make inline with each other,
+ * and make the box brown with rounded corners
+ */
 #type {
-    width: auto;
     text-transform: capitalize;
     display: inline-block;
     padding: 10px;
@@ -71,6 +90,16 @@ a {
     color: white;
 }
 
+/*
+ * For the paragraphs, remove top/bottom margin
+ */
+p {
+    margin: 0 auto;
+}
+
+/*
+ * For the bottom of the detail page, display the items in a grid fashion
+ */
 #detail-bot {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -79,25 +108,26 @@ a {
     text-align: center;
 }
 
+/*
+ * For the spans moves and abilities, add padding
+ */
 span#moves, span#abilities {
     padding: 10px;
 }
 
+/*
+ * For the unordered lists moves and abilities, remove bullets, display inline-block,
+ * and make the list items left-aligned
+ */
 ul#moves, ul#abilities {
     list-style: none;
     display: inline-block;
     text-align: left;
 }
 
-p {
-    margin: 0 auto;
-}
-
-h1 {
-    text-transform: capitalize;
-    margin: 2px;
-}
-
+/*
+ * For any header 2, make the text center-aligned
+ */
 h2 {
     text-align: center;
 }
