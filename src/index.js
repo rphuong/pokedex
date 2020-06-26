@@ -1,3 +1,5 @@
+// Copyright 2020, Rachel Phuong
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

@@ -1,3 +1,5 @@
+// Copyright 2020, Rachel Phuong
+
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 

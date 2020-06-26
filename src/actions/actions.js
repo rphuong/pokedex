@@ -1,4 +1,6 @@
-import {UPDATE_QUERY, FETCH_POKEMON, FILTER_OPTIONS} from './types';
+// Copyright 2020, Rachel Phuong
+
+import {UPDATE_QUERY, FETCH_POKEMON, FILTER_OPTIONS, GET_POKEMON} from './types';
 import {Link} from "react-router-dom";
 import React from "react";
 

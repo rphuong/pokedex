@@ -1,3 +1,5 @@
+// Copyright 2020, Rachel Phuong
+
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
