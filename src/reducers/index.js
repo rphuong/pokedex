@@ -36,7 +36,7 @@ export default function (state = initialState, action) {
       let query = state.query;
       if (!query)
         query = "";
-      query.toLowerCase();
+      query = query.toLowerCase();
       return {
         ...state,
         options: state.pokemon
